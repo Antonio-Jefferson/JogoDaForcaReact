@@ -122,3 +122,37 @@ button{
     text-align: center;
     color: #3C76A1;
 }
+
+@media(max-width: 870px){
+    .jogo{
+        display: block;
+        padding-top: 12px;
+    }
+    .jogo img{
+        width: 300px;
+    }
+    .jogo div{
+        margin-bottom: 20px;
+        display: block;
+    }
+    .jogo .btn{
+        width: 100px;
+    }
+    .card{
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    .alfabeto{
+        justify-content: center;
+        justify-items: center;
+    }
+    .box-chute{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 30px 0px;
+    }
+}

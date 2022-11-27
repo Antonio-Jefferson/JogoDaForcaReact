@@ -14,7 +14,7 @@ export default function Letras({
                 {alfabeto.map((a) => 
                 <button
                     data-test="letter"
-                    disabled={verdadeOuFalse} 
+                    disabled={!listaLetras.includes(a)? verdadeOuFalse : true} 
                     className={`btn ${listaLetras.includes(a) ? "" : ativarBtn}`} 
                     onClick={() => letraEscolhida(a)}>{a}
                 </button>)}
