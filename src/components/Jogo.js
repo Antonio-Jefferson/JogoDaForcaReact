@@ -10,14 +10,14 @@ export default function Jogo({
     return (
         <div className="jogo">
             <div>
-                <img src={`./assets/forca${contadorErro}.png`} />
+                <img data-test="game-image" src={`./assets/forca${contadorErro}.png`} />
             </div>
             <div>
                 <div>
-                    <button className="btn" onClick={inicializarJogo}>Escolher Palavra</button>
+                    <button data-tes="choose word" className="btn" onClick={inicializarJogo}>Escolher Palavra</button>
                 </div>
                 <div className="palavra-sorteada">
-                    <div className={`card ${cor}`}>{contadorErro === 6 ? palavra : underline}</div>
+                    <div data-test="word" data-answer={palavra} className={`card ${cor}`}>{contadorErro === 6 ? palavra : underline}</div>
                 </div>
             </div>
         </div>

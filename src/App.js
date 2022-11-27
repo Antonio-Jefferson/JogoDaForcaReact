@@ -19,8 +19,8 @@ export default function App() {
   
   console.log(underline)
   console.log(palavra)
-  console.log(listaLetras)
-  console.log(letrinha)
+  //*console.log(listaLetras)
+  //console.log(letrinha)
 
   function inicializarJogo() {
         const palavraSoteada = palavras[Math.floor(Math.random() * palavras.length)];
@@ -32,6 +32,7 @@ export default function App() {
         setVerdadeOuFalso(false)
         setAtivarBtn('ativado')
         setContadorErro(0)
+        setCor('')
   };
 
   function letraEscolhida(letra) {
@@ -50,27 +51,55 @@ export default function App() {
       const novoUnderline = [...underline];
       novoArr.forEach((l, i) => {
         if(l === isL){
-          novoUnderline[i] = isL + " ";
+          novoUnderline[i] = isL;
           setUnderline([...novoUnderline])
-          if(novoArr === novoUnderline){
-            console.log('entrei no caio')
-            setCor('green')
-          }
         }
+        FimDeJogo(novoArr, novoUnderline);
       })
     }else{ 
       if(contadorErro <= 5){
-        let tmpContador = contadorErro + 1;
-        setContadorErro(tmpContador);
-          if(tmpContador === 6){
-            setCor('red')
-            setVerdadeOuFalso(true)
-            setAtivarBtn('')
-          }
+        if(!listaLetras.includes(isL)){
+          let tmpContador = contadorErro + 1;
+          setContadorErro(tmpContador);
+            if(tmpContador === 6){
+              setCor('red')
+              setVerdadeOuFalso(true)
+              setAtivarBtn('')
+            }
+        }
     }
       
     }
   }
+  function FimDeJogo(novoArr, novoUnderline){
+    if(novoArr.toString() === novoUnderline.toString()){
+      console.log('entrei no caio')
+      setCor('green')
+      setVerdadeOuFalso(true)
+      setAtivarBtn('')
+    }
+  }
+  const palavraChutada = (ev)=> {
+    const pChute = ev.target.value;
+    setChutePalavra(pChute)
+    console.log('esse eu digitei '+ pChute);
+   
+}
+function confirmarPalavra(){
+    setChutePalavra('')
+    if(palavra.toString() === chutePalavra){
+      setUnderline([...palavra])
+      setCor('green')
+      setVerdadeOuFalso(true)
+      setAtivarBtn('')
+    }else{
+      setUnderline([...palavra])
+      setContadorErro(6)
+      setCor('red')
+      setVerdadeOuFalso(true)
+      setAtivarBtn('')
+    }
+}
 
  
 
@@ -91,10 +120,9 @@ export default function App() {
       />
       <Chute
         chutePalavra={chutePalavra}
-        setChutePalavra={setChutePalavra}
+        confirmarPalavra={confirmarPalavra}
+        palavraChutada={palavraChutada}
       />
     </>
   );
 }
-
-

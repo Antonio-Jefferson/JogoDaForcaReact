@@ -1,21 +1,16 @@
-export default function Chute(chutePalavra, setChutePalavra){
+export default function Chute({chutePalavra, palavraChutada, confirmarPalavra }){
 
-    const palavraChutada = (ev)=> {
-        setChutePalavra(ev.target.value)
-    }
-    function verificar(){
-        setChutePalavra('')
-    }
     return(
         <div className="chute">
             <div className="box-chute">
                 <p>Já sei a palavra!</p>
                 <input 
+                    data-test="guess-input"
                     type="text"
                     onChange={palavraChutada}
                     value={chutePalavra}
                 />
-                <button onClick={verificar}>Chutar</button>
+                <button data-test="guess-button" onClick={confirmarPalavra}>Chutar</button>
             </div>
         </div>
     )
