@@ -12,7 +12,7 @@ export default function Letras({
         <div className="letras">
             <div className="alfabeto">
                 {alfabeto.map((a) => 
-                <button 
+                <button
                     data-test="letter"
                     disabled={verdadeOuFalse} 
                     className={`btn ${listaLetras.includes(a) ? "" : ativarBtn}`} 

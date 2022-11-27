@@ -14,7 +14,7 @@ export default function Jogo({
             </div>
             <div>
                 <div>
-                    <button data-tes="choose word" className="btn" onClick={inicializarJogo}>Escolher Palavra</button>
+                    <button data-tes="choose-word" className="btn" onClick={inicializarJogo}>Escolher Palavra</button>
                 </div>
                 <div className="palavra-sorteada">
                     <div data-test="word" data-answer={palavra} className={`card ${cor}`}>{contadorErro === 6 ? palavra : underline}</div>

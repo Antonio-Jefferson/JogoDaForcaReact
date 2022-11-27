@@ -33,6 +33,8 @@ export default function App() {
         setAtivarBtn('ativado')
         setContadorErro(0)
         setCor('')
+        let newarr = [];
+        setListaLetras(newarr);
   };
 
   function letraEscolhida(letra) {
@@ -122,6 +124,7 @@ function confirmarPalavra(){
         chutePalavra={chutePalavra}
         confirmarPalavra={confirmarPalavra}
         palavraChutada={palavraChutada}
+        verdadeOuFalse={verdadeOuFalse}
       />
     </>
   );
