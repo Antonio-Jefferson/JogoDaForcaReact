@@ -17,9 +17,9 @@ export default function App() {
   const [chutePalavra, setChutePalavra] = useState('')
   const [cor, setCor] = useState('')
   
-  console.log(underline)
-  console.log(palavra)
-  //*console.log(listaLetras)
+  //console.log(underline)
+  //console.log(palavra)
+  //console.log(listaLetras)
   //console.log(letrinha)
 
   function inicializarJogo() {
