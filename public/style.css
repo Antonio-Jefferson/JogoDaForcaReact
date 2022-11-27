@@ -46,6 +46,12 @@ button{
 .card{
    font-size: 5rem;
 }
+.card.red{
+    color: red;
+}
+.card.green{
+    color: #27AE60;
+}
 
 /*Componete LETRAS*/
 .letras{
