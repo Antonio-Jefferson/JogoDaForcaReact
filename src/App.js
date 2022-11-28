@@ -10,12 +10,11 @@ export default function App() {
   const [contadorErro, setContadorErro] = useState(0);
   const [ativarBtn, setAtivarBtn] = useState("");
   const [verdadeOuFalse, setVerdadeOuFalso] = useState(true);
-  const [letrinha, setLetrinha] = useState('');
   const [underline, setUnderline] = useState([]);
   const [palavra, setPalavra] = useState('')
-  const [litLetras, setListLetras] = useState([])
   const [chutePalavra, setChutePalavra] = useState('')
   const [cor, setCor] = useState('')
+  const norm = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   
   //console.log(underline)
   //console.log(palavra)
@@ -26,7 +25,6 @@ export default function App() {
         const palavraSoteada = palavras[Math.floor(Math.random() * palavras.length)];
         setPalavra(palavraSoteada);
         const arrPalavra = [...palavraSoteada];
-        setListLetras(arrPalavra);
         const listUnderline = arrPalavra.map(_l => "_ ");
         setUnderline(listUnderline);
         setVerdadeOuFalso(false)
@@ -40,7 +38,6 @@ export default function App() {
   function letraEscolhida(letra) {
     if (!listaLetras.includes(letra)) {
         setListaLetras([...listaLetras, letra])
-        setLetrinha(letra)
     }
     let isL = letra
     verificar(isL)
@@ -51,8 +48,8 @@ export default function App() {
     if(palavra.includes(isL)){
       const novoArr = [...palavra];
       const novoUnderline = [...underline];
-      novoArr.forEach((l, i) => {
-        if(l === isL){
+      novoArr.forEach((l, i) =>  {
+        if(norm(l) === isL){
           novoUnderline[i] = isL;
           setUnderline([...novoUnderline])
         }
